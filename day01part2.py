@@ -209,22 +209,25 @@ sum = 2020
 # once a pair is found that is = to 2020 multiply those numbers and print the answer
 
 # Naive method to find a pair in a list with given sum
-def findPair(list, sum):
+def findTriplet(list, sum):
  
     # consider each element except last element
     for i in range(len(list) - 1):
  
         # start from i'th element till last element
         for j in range(i + 1, len(list)):
+
+            # find 3rd number
+            for k in range(j + 1, len(list)):
  
-            # if desired sum is found, print it and return
-            if list[i] + list[j] == sum:
-                print("Pair found at index", i, "and", j)
-                print(list[i], "+", list[j], "=", list[i]+list[j])
-                print(list[i], '*', list[j], "=", list[i]*list[j])
-                print(list[i]*list[j])
-                return
+                # if desired sum is found, print it and return
+                if list[i] + list[j] + list[k] == sum:
+                    print("Nymbers found at index", i, ",", j, "and", k)
+                    print(list[i], "+", list[j], "+", list[k], "=", list[i]+list[j]+list[k])
+                    print(list[i], '*', list[j], "*", list[k], "=", list[i]*list[j]*list[k])
+                    print(list[i]*list[j]*list[k])
+                    return
  
     # No pair with given sum exists in the list
     print("Pair not found")
-findPair(list, sum)
+findTriplet(list, sum)
